@@ -99,7 +99,9 @@ class Parser
 
     protected function parserLicenseNumber(Crawler $node)
     {
-        return trim($node->filter('td')->eq(1)->filter('font')->eq(0)->text());
+        $number = htmlentities($node->filter('td')->eq(1)->filter('font')->eq(0)->text(), null, 'utf-8');
+
+        return trim(str_replace('&nbsp;', ' ', $number));
     }
 
     protected function parseName(Crawler $node)
