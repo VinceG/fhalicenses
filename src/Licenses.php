@@ -137,7 +137,7 @@ class Licenses
 
     protected function store(array $rows)
     {
-        $this->cache->set($this->getCacheKey(), $rows);
+        $this->cache->set($this->getCacheKey(), $rows, $this->ttl);
     }
 
     protected function cached()
